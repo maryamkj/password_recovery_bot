@@ -11,8 +11,11 @@ async def start_command(Client, message):
     mark = ReplyKeyboardMarkup([
         [" ثبت اکانت جدید "," اکانت های قدیمی "]
     ],resize_keyboard=True, one_time_keyboard=True)
-    
+
     await app.send_message(message.chat.id , f"سلام {message.from_user.first_name} عزیز لطفا عملیات خود را انتخاب کنید", reply_markup=mark)
 
+@app.on_message(filters.text)
+async def plain_texy(Client, message):
+    pass
 
 app.run()

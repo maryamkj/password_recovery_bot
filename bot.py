@@ -16,6 +16,12 @@ async def start_command(Client, message):
 
 @app.on_message(filters.text)
 async def plain_text_handler(Client, message):
-    pass
 
+    text = message.text
+
+    if text == "اکانت های قدیمی" :
+        pass
+    elif text == "ثبت اکانت جدید" :
+        pass
+    
 app.run()

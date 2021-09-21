@@ -34,6 +34,13 @@ async def plain_text_handler(Client, message):
 
 @app.on_callback_query()
 async def answer(client, callback_query):
-    pass
+
+    query = callback_query.data
+    
+    if query == "new_account":
+        pass
+
+    elif query == "old_account":
+        pass
 
 app.run()

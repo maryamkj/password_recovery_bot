@@ -5,7 +5,7 @@ from pyrogram.types.bots_and_keyboards import keyboard_button
 
 app = Client("MaryamKJ", config_file="config.ini")
 
-def dynamic_data_filter(data):
+def dynamic_callback_data_filter(data):
     async def func(flt, _, query):
         return flt.data == query.data
 
@@ -36,15 +36,14 @@ async def plain_text_handler(Client, message):
     elif text == "ثبت اکانت جدید" :
         await app.send_message(message.chat.id ,"چه اکانتی میخوای ثبت کنی؟ ",reply_markup = mark )
 
-@app.on_callback_query()
+
+@app.on_callback_query(dynamic_callback_data_filter("new_account"))    
 async def answer(client, callback_query):
+    pass
 
-    query = callback_query.data
-    
-    if query == "new_account":
-        pass
 
-    elif query == "old_account":
-        pass
+@app.on_callback_query(dynamic_callback_data_filter("old_accounts"))    
+async def answer(client, callback_query):
+    pass
 
 app.run()

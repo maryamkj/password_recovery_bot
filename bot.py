@@ -11,8 +11,8 @@ app = Client("MaryamKJ", config_file="config.ini")
 async def start_command(Client, message):
     mark = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("ثبت اکانت جدید", callback_data="hidden_callback_data")],
-            [InlineKeyboardButton("اکانت های قدیمی", callback_data="hidden_callback_data")]
+            [InlineKeyboardButton("ثبت اکانت جدید", callback_data="new_account")],
+            [InlineKeyboardButton("اکانت های قدیمی", callback_data="old_accounts")]
         ])
     await app.send_message(message.chat.id , f"سلام {message.from_user.first_name} عزیز لطفا عملیات خود را انتخاب کنید", reply_markup=mark)
 
@@ -22,9 +22,9 @@ async def plain_text_handler(Client, message):
     text = message.text
     mark = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("Gmail", callback_data="hidden_callback_data")],
-            [InlineKeyboardButton("Instagram", callback_data="hidden_callback_data")],
-            [InlineKeyboardButton("Others", callback_data="hidden_callback_data")]
+            [InlineKeyboardButton("Gmail", callback_data="Gmail")],
+            [InlineKeyboardButton("Instagram", callback_data="Instagram")],
+            [InlineKeyboardButton("Others", callback_data="Others")]
         ])    
 
     if text == "اکانت های قدیمی" :

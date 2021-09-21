@@ -16,7 +16,6 @@ async def start_command(Client, message):
         ])
     await app.send_message(message.chat.id , f"سلام {message.from_user.first_name} عزیز لطفا عملیات خود را انتخاب کنید", reply_markup=mark)
 
-
 @app.on_message(filters.text)
 async def plain_text_handler(Client, message):
 
@@ -32,5 +31,9 @@ async def plain_text_handler(Client, message):
         await app.send_message(message.chat.id ,"چه اکانتی میخوای چک کنی؟ ",reply_markup = mark )
     elif text == "ثبت اکانت جدید" :
         await app.send_message(message.chat.id ,"چه اکانتی میخوای ثبت کنی؟ ",reply_markup = mark )
+
+@app.on_callback_query()
+async def answer(client, callback_query):
+    pass
 
 app.run()

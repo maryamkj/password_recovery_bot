@@ -2,6 +2,8 @@ from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import *
 from pyrogram.types.bots_and_keyboards import keyboard_button
+import json
+import psycopg2
 
 app = Client("MaryamKJ", config_file="config.ini")
 

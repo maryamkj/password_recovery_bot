@@ -5,7 +5,11 @@ from pyrogram.types.bots_and_keyboards import keyboard_button
 
 app = Client("MaryamKJ", config_file="config.ini")
 
+def dynamic_data_filter(data):
+    async def func(flt, _, query):
+        return flt.data == query.data
 
+    return filters.create(func, data=data)
 
 @app.on_message(filters.command("start"))
 async def start_command(Client, message):

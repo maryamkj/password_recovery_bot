@@ -7,6 +7,22 @@ import psycopg2
 
 app = Client("MaryamKJ", config_file="config.ini")
 
+user = json.loads(open('secretfiles.json', 'r').read())[
+    'postgres']['user']
+
+password = json.loads(open('secretfiles.json', 'r').read())[
+    'postgres']['password']
+
+host = json.loads(open('secretfiles.json', 'r').read())[
+    'postgres']['host']
+
+port = json.loads(open('secretfiles.json', 'r').read())[
+    'postgres']['port']
+
+database = json.loads(open('secretfiles.json', 'r').read())[
+    'postgres']['database']
+
+
 def dynamic_callback_data_filter(data):
     async def func(flt, _, query):
         return flt.data == query.data
@@ -41,7 +57,7 @@ async def plain_text_handler(Client, message):
 
 @app.on_callback_query(dynamic_callback_data_filter("new_account"))    
 async def answer(client, callback_query):
-    pass
+    pass   
 
 
 @app.on_callback_query(dynamic_callback_data_filter("old_accounts"))    

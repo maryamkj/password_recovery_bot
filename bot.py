@@ -31,9 +31,9 @@ async def answer(client, callback_query):
     
     mark = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("Gmail", callback_data="Gmail")],
-            [InlineKeyboardButton("Instagram", callback_data="Instagram")],
-            [InlineKeyboardButton("Others", callback_data="Others")]
+            [InlineKeyboardButton("Gmail", callback_data="new_Gmail")],
+            [InlineKeyboardButton("Instagram", callback_data="new_Instagram")],
+            [InlineKeyboardButton("Others", callback_data="new_Others")]
         ])      
     await app.send_message(user_id ,"چه اکانتی میخوای ثبت کنی؟ ",reply_markup = mark )
 
@@ -45,9 +45,9 @@ async def answer(client, callback_query):
 
     mark = InlineKeyboardMarkup(
     [
-        [InlineKeyboardButton("Gmail", callback_data="Gmail")],
-        [InlineKeyboardButton("Instagram", callback_data="Instagram")],
-        [InlineKeyboardButton("Others", callback_data="Others")]
+        [InlineKeyboardButton("Gmail", callback_data="old_Gmail")],
+        [InlineKeyboardButton("Instagram", callback_data="old_Instagram")],
+        [InlineKeyboardButton("Others", callback_data="old_Others")]
     ])
     await app.send_message(user_id,"چه اکانتی میخوای چک کنی؟ ",reply_markup = mark )
 app.run()

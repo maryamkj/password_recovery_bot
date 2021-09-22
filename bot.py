@@ -25,7 +25,7 @@ async def start_command(Client, message):
 
 
 @app.on_callback_query(dynamic_callback_data_filter("new_account"))    
-async def answer(client, callback_query):
+async def new_account_answer(client, callback_query):
 
     user_id = callback_query.from_user.id
     
@@ -39,7 +39,7 @@ async def answer(client, callback_query):
 
 
 @app.on_callback_query(dynamic_callback_data_filter("old_accounts"))    
-async def answer(client, callback_query):
+async def old_accounts_answer(client, callback_query):
     
     user_id = callback_query.from_user.id
 
@@ -50,4 +50,6 @@ async def answer(client, callback_query):
         [InlineKeyboardButton("Others", callback_data="old_Others")]
     ])
     await app.send_message(user_id,"چه اکانتی میخوای چک کنی؟ ",reply_markup = mark )
+
 app.run()
+

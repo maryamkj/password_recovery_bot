@@ -2,25 +2,10 @@ from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import *
 from pyrogram.types.bots_and_keyboards import keyboard_button
-import json
+import constants as keys
 import psycopg2
 
 app = Client("MaryamKJ", config_file="config.ini")
-
-user = json.loads(open('secretfiles.json', 'r').read())[
-    'postgres']['user']
-
-password = json.loads(open('secretfiles.json', 'r').read())[
-    'postgres']['password']
-
-host = json.loads(open('secretfiles.json', 'r').read())[
-    'postgres']['host']
-
-port = json.loads(open('secretfiles.json', 'r').read())[
-    'postgres']['port']
-
-database = json.loads(open('secretfiles.json', 'r').read())[
-    'postgres']['database']
 
 
 def dynamic_callback_data_filter(data):

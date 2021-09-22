@@ -71,6 +71,14 @@ async def answer(client, callback_query):
 
 @app.on_callback_query(dynamic_callback_data_filter("old_accounts"))    
 async def answer(client, callback_query):
-    pass
+    
+    user_id = callback_query.from_user.id
 
+    mark = InlineKeyboardMarkup(
+    [
+        [InlineKeyboardButton("Gmail", callback_data="Gmail")],
+        [InlineKeyboardButton("Instagram", callback_data="Instagram")],
+        [InlineKeyboardButton("Others", callback_data="Others")]
+    ])
+    await app.send_message(user_id,"چه اکانتی میخوای چک کنی؟ ",reply_markup = mark )
 app.run()

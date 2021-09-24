@@ -56,7 +56,8 @@ async def old_accounts_answer(client, callback_query):
 async def create_new_gmail(client, callback_query):
 
     user_id = callback_query.from_user.id
-    await app.send_message(user_id ,"یوزرنیم خودتون رو وارد کنید",reply_markup = ForceReply(True) )
+    await app.send_message(user_id ,"یوزرنیم جیمیل خودتون رو وارد کنید",reply_markup = ForceReply(True) )
+
 
 
 

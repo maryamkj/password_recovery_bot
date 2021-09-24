@@ -8,6 +8,15 @@ import psycopg2
 app = Client("MaryamKJ", config_file="config.ini")
 
 
+def insert_username(table,chat_id,value):
+    connection = psycopg2.connect(
+        user=keys.user, password=keys.password, host=keys.host, port=keys.port, database=keys.database)
+
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(f"INSERT INTO {table} (chat_id,username,numbers) VALUES({chat_id},'{value}',1);")
+
+
 def dynamic_callback_data_filter(data):
     async def func(flt, _, query):
         return flt.data == query.data
